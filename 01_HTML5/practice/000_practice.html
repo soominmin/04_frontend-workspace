@@ -1,60 +1,140 @@
-<!--
-    <table></table>: 기본적으로 표를 생성해주는 태그
-    <tr></tr>: 행
-    <th></th>: 제목
-    <td></td>: 내용
--->
-!<!DOCTYPE html>
+<!DOCTYPE html>
 <head>
-    <title>글자관련</title>
+    <title>연습장</title>
+    <style>
+        #thead {
+            background-color: pink;
+            color: white;
+        }
+        #tbody {
+            background-color: yellow;
+        }
+        #tfoot {
+            background-color: palevioletred;
+        }
+    </style>
 </head>
-<body>
-    굳굳 <br>
-    <h1>h1 태그</h1>
-    <p>문단을 나누는 태그</p>
-    <pre>문단을 나누는 태그</pre>
-    <b>글자 굵게</b>
-    <strong>글자 굵게</strong>
-    <i>글자기울여서 보이기</i>
-    <mark>형광펜</mark>
-    <u>글자에 밑줄</u>
-    <s>글자에 취소선</s>
-    <small>글자를 작게 표현</small>
-    <sub>아래 첨자</sub>
-    <sup>위 첨자</sup>
-    <abbr title="Internet"></abbr>
-    <li>목록</li>
-    <ul>
-        <li>목록</li>
-    </ul>
 
+<body>
+<h1 align="center">HTML 1일차</h1>
+<h3>자바(Java) 학습내용</h3>
+<h3>담당강사: 김시연</h3>
+이메일: siyeon@iei.or.kr
+<fieldset>
     <ul>
         <li>
+            프로그래밍 언어
             <ul>
-                <li>목록태그</li>
+                <li><s>자바</s></li>
             </ul>
         </li>
+
+        <li>
+            데이터 베이스
+            <ul>
+                <li><s>오라클</s></li>
+            </ul>
+        </li>
+        <li>
+            화면 구현
+            <ol>
+                <li><mark>html</mark></li>
+                <li>css</li>
+                <li>JavaScript</li>
+            </ol>
+        </li>
+        <li>
+            서버개발기술
+            <ol type="i">
+                <li><s>jdbc</s></li>
+                <li>servlet</li>
+                <li>jsp</li>
+                <li>ajax</li>
+            </ol>
+        </li>
+        <li>프레임워크
+            <ol start="3" type="a">
+                <li>mybatis</li>
+                <li>spring</li>
+            </ol>
+        </li>
     </ul>
+    </fieldset>
 
-    <ul>순서 없는 목록태그</ul>
-    <ol>순서 있는 목록 태그</ol>
+
+<h1 align="center">HTML 2일차</h1>
+    <table border="1">
+        <thead id="thead">
+            <tr>
+                <td>관</td>
+                <td>강의장</td>
+                <td>인원수</td>
+                <td>강의명</td>
+            </tr>
+        </thead>
+        <tbody id="tbody">
+            <tr>
+                <td rowspan="6">3관</td>
+                <td rowspan="2">361강의장</td>
+                <td rowspan="2">30명</td>
+                <td>오전: 김시연 <input type="submit" value="신청"></td>
+            </tr>
+            <tr>
+                <td>오전: 김시연 <input type="submit" value="신청"></td>
+            </tr>
+            <tr>
+                <td rowspan="2">362강의장</td>
+                <td rowspan="2">23명</td>
+                <td>오후: 김동현 <input type="submit" value="신청"></td>
+            </tr>
+            <tr>
+                <td>오후: 김동현 <input type="submit" value="신청"></td>
+            </tr>
+            <tr>
+                <td rowspan="2">363강의장</td>
+                <td rowspan="2">27명</td>
+                <td>오전: 문인수 <input type="submit" value="신청"></td>
+            </tr>
+            <tr>
+                <td>오후: 문인수 <input type="submit" value="신청"></td>
+            </tr>
+        </tbody>
+        <tfoot id="tfoot">
+            <tr>
+                <th colspan="4" align="center">많이 신청해주세요</th>
+            </tr>
+        </tfoot>
+    </table>
+
+<h1 align="center">HTML 2일차</h1>
+    <form action="test.do">
+        <fieldset>
+            <legend>
+                제품주문
+            </legend>
+
+            <table border="1">
+                <tr>
+                    <td>주문자명</td>
+                    <td><input type="text" placeholder="이름 입력"></td>
+                </tr>
+                <tr>
+                    <td>비밀번호</td>
+                    <td><input type="text" placeholder="비밀번호 입력"></td>
+                </tr>
+                <tr>
+                    <td>제품수량</td>
+                    <td><input type="text" placeholder="제품수량 입력"></td>
+                </tr>
+                <tr>
+                    <td>요청사항</td>
+                    <td><input type="text" placeholder="요청사항 입력"></td>
+                </tr>
+            </table>
+
+            <input type="submit" value="주문">
+            <input type="reset">
+        </fieldset>
+    </form>
 </body>
-
-
-<table>
-    <caption>소제목</caption>
-    <tr>
-        <th>소타이틀</th>
-        <th>소타이틀</th>
-    </tr>
-    <tr>
-        <td>셀</td>
-    </tr>
-    <tr>
-        <td></td>
-    </tr>
-</table>
-
-<table>
-    
-</table>
+</html>
