@@ -58,6 +58,7 @@
         입력1: <input type="text" name="text1" placeholder="입력해주세용"> <br>
         입력2: <input type="text" name="text2"> <br>
     </fieldset>
+    <br>    
 
     <fieldset>
         <legend>제목2</legend>
@@ -70,12 +71,292 @@
 </form>
 
 <br>    <br>    <br>
-<br>    <br>    <br>
-<br>    <br>    <br>
-<br>    <br>    <br>
-<br>    <br>    <br>
 
 
-    
+<hr>
+<h1>12-28 </h1>
+<h2>text와 관련된 input 태그의 타입</h2>
+<form action="test.do" method="get">
+    <!--어떻게 넘어가는지 보기 위해 get으로 짜자-->
+<h3> type="text" </h3>
+<p>
+    - 한 줄 짜리 텍스드를 입력할 수 있는 텍스트 상자(기본값) <br>
+    - 생략하거나, 잘못쓰면 자동으로 type="text"가 된다. <br>
+    * maxlength : 글자수 제한 거는것 (필수적으로 걸어야 함) <br>
+    * 속성 속성값을 구분하는 "" 는 표기해주자 *
+</p>
+아이디: 
+<input type="text" name="userId" placeholder="아이디 입력해주세요" maxlength="12" required>
+
+<h3>type = "password"</h3>
+<p>
+    -비밀번호를 입력 할 수 있는 텍스트 상자 <br>
+    ** required: 아이디랑 비밀번호 입력 안 했을때, 페이지가 넘어지않게 해준다. <br>
+    ** not null == required 
+
+</p>
+비밀번호:
+<input type="password" name="userPwd" placeholder="영문,숫자,특수문자 8~15" maxlength="15" required>
+<br>
+
+<h3>type= "search | url | email | phone"</h3>
+<p>
+    - 겉모습은 일반 텍스트 상자와 유사하지만, 각각의 정보에 맞게 세분화된 기능 제공<br>
+    * 검색을 지울수 있는 x가 생김<br>
+    * url에 url 속성 값만 입력가능, value값에 초기값 부여 가능<br>
+    * email에 email 속성 값만 입력 가능<br>
+    * phone 문자키패드 열리는것, 핸드폰에서 열림 (인터넷으론 x)<br>
+</p>
+
+검색:
+<input type="search" name="keyword">
+<br>
+
+홈페이지: 
+<input type="url" name="homepage" value="http://">
+<br>
+
+이메일:
+<input type="email" name="email">
+<br>
+
+전화번호:
+<input type="phone" name="phone">
+<!-- 모바일로 키면, 키패드가 열림-->
+<br><br>
+<input type="submit">
+</form>
+
+
+
+
+<h2>textarea</h2>
+<p>
+    - 텍스트상자: 여러줄 입력 가능 <br>
+    * cols/rows: 텍스트 상자 크기지정 <br>
+    * style="resize: none;" ==> 지정된 텍스트 상자 크기 변동 불가 <br>
+</p>
+<form action="test.do">
+    <fieldset>
+        <legend>글작성</legend>
+        제목: <input type="text" name="title" size="30"> <br>
+        내용: <textarea name="content" placeholder="내용을 입력해주세요" cols="35" rows="10" style="resize: none;"></textarea>
+    </fieldset>
+
+    <input type="submit">
+</form>
+
+
+
+<hr>
+<h2>숫자와 관련된 input태그의 타입</h2>
+<form action="test.do">
+    <h3>type="number"</h3>
+    <p>
+        - 숫자값만 작성 가능한 텍스트 상자 <br>
+        - 스핀박스가 표시 됨 (스핀박스: 위/아래 화살표 버튼)
+    </p>
+    수량: 
+    <input type="number" name="amount" min="0" max="20" step="5" value="0">
+    <br>
+
+    <h3>type="range"</h3>
+    <p>
+        - 슬라이드바를 통해 숫자 지정 가능 (직관적이지 않아서 잘 쓰이지 않음)
+    </p>
+    점수:
+    <input type="range" name="score" min="0" max="100" step="20">
+    <br>
+    <input type="submit">
+</form>
+
+
+
+<h2>날짜 및 시간과 관련된 input 태그의 타입</h2>
+<form action="test.do">
+    <h3>type="date | month | week | time | datetime-local"</h3>
+    date:
+    <input type="date" name="dateIn"> <br>
+    <!--연도, 월, 일 받을 수 있는 텍스트 상자-->ㅂㄴ
+    month:
+    <input type="month" name="monthIn"> <br>
+    <!--연도, 월까지만 입력 받을 수 있는 텍스트 상자-->
+    week:
+    <input type="week" name="weekIn"> <br>
+    <!--연도, 해당 연도의 몇번째 주인지 입력 받을 수 있는 텍스트 상자-->
+    time:
+    <input type="time" name="timeIn"> <br>
+    <!--오전|오후 시,분 입력받을 수 있는 텍스트 상자-->
+    datetime-local:
+    <input type="datetime-local" name="datetimeIn"> <br>
+    <!--연도, 월, 일, 오전|오후, 시, 분 입력 받을 수 있는 텍스트 상자-->
+
+    <br>
+    <!-- <input type="submit"> -->
+    <button type="submit">제출</button>
+</form>
+
+
+<hr>
+<h2>라디오 버튼과 체크박스 관련 input 태그의 타입</h2>
+<form action="test.do">
+    <h3>라디어버튼(type="radio")</h3>
+    <p>
+        - 제시한 여러개의 값들 중에서 오로지 한 개만 선택해야 될 때 <br>
+        * <label for="id값">글자</label>: 글자 눌렀을때, id값 선택됨 (필수)
+        * 그룹 지을때, name을 같은 이름으로 해야 다중 선택이 안됨
+        - (name 속성값이 똑같은 것들끼리 하나의 그룹으로 지어짐)
+        * checked: 자동으로 체크되는 옵션 (강제성 부여, 취소x)
+        * value: 넘어가는 값 지정(없을시, on으로 넘어감)
+        - 제출시 현재 선택된(checked) 라디오 버튼의 value값이 넘어감 <br>
+          (해당 라디오 버튼 선택시 어떤 값을 넘길껀지 value값을 명시해줘야한다!)
+    </p>
+    성별:
+    <input type="radio" id="radioX" name="gender" value="X" checked>
+    <label for="radioX">선택안함</label>
+
+    <input type="radio" id="radioM" name="gender" value="M">
+    <label for="radioM">남자</label>
+
+    <input type="radio" id="radioF" name="gender" value="F">
+    <label for="radioF">여자</label>
+
+    <h3>체크박스(type="checkbox")</h3>
+    <p>
+        - 제시한 여러개의 값들 중에서 여러개 선택 가능할 경우 <br>
+        - 제출시 현재 선택된(checkbox) 체크박스의 value값이 넘어감
+            (넘기고자 하는 value값 명시해줘야 함)
+        * 그룹으로 묶여 있어도 중복 체크 가능함
+        * hobby 배열에 reading과 movie가 넘어올거임(String 배열로)
+          ( hobby[reading, movie] )
+        - 동일한 키 값으로 여러 value 값이 넘어온 경우에는
+            스트링 배열에 담긴다.
+    </p>
+
+    취미:
+    <input type="checkbox" id="reading" name="hobby" value="reading">    
+    <label for="reading">독서</label>
+
+    <input type="checkbox" id="sports" name="hobby" value="sports">
+    <label for="sports">운동</label>
+
+    <input type="checkbox" id="movie" name="hobby" value="movie">
+    <label for="movie">영화보기</label>
+
+    <br> <br>
+    <input type="submit">
+</form>
+
+<hr>
+<h2>추가적인 input 태그 타입</h2>
+
+
+
+<form action="test.do">
+    <h3>type="color"</h3>
+    <p>
+        - 색상을 선택할 수 있는 input
+    </p>
+    색상선택: 
+    <input type="color" name="color"> <br>
+
+
+    <h3>type="file"</h3>
+    <p>
+        - 첨부하고자 하는 파일을 선택 할 수 있는 input
+        ** 게시판에 필수적으로 구현되어야하는 기능
+    </p>
+    파일 선택: 
+    <input type="file" name="uploadFile"> <br>
+
+    <h3>type="hidden"</h3>
+    <p>
+        - 특정값을 사용자에게 입력 받지 않고, 화면에 노출시키지도 않고
+          근데 넘기고자 하는 값이 있을 경우 (자주 쓰는 기능)
+    </p>
+    <input type="hidden" name="hiddenValue" value="ㅋㅋㅋ">
+    <br><br>
+
+    <h3>input type="submit | reset | button"</h3>
+    <p>
+        - value="제출"(submit 타입시 기본값)
+        - value="초기화"(reset 타입시 기본값)
+    </p>
+    <input type="submit">
+    <input type="reset"> 
+    <input type="button" value="일반버튼">
+    <!--눌러도 아무 일 일어나지 않음-->
+    <br><br>
+
+
+    <h3>button [type="submit | reset | button]"</h3>
+    <button type="submit">제출</button>
+    <button type="reset">초기화</button>
+    <button type="button">일반버튼</button>
+
+    <button>??버튼</button>
+    <!--타입을 생략시 기본적으로 제출(submit)버튼-->
+</form>
+
+
+
+<hr>
+<h2>select 태그와 option 태그</h2>
+<p>
+    - 사용자에게 직접 키보드로 값을 입력받는게 아니라,내가 제시한
+      여러개 옵션(목록) 들 중에서 선택 할 수 있겠끔 <br>
+    * 핸드폰번호 앞자리/지역/생일/.. (자주 쓰이는 기능)
+    - 제출시 현재 선택된(select) option 의 값이 넘어감 <br>
+    - 각각의 option에 value값을 명시하지 않았을 경우 
+      content 영역의 값이넘어감
+    - value 값을 명시했을 경우 value 값이 넘어감
+    - 기본값 선택안함을 하고 싶을때: 1. 목록 제일 위에, selected 작성
+</p>
+<form action="test.do">
+    국적:
+    <select name="national">
+        <option value="ko">한국</option>
+        <option value="us">미국</option>
+        <option value="eu">영국</option>
+        <option value="ru">러시아</option>
+        <option value="" selected>선택안함</option>
+    </select>
+    <br> <br>
+
+    <h4>HTML5에서만 새로 추가 된 기능 datalist</h4>
+    <p>
+        - 사용자에게 직접 키보드로 값을 입력 받을 수 도 있고,
+          목록에서 선택할 수도 있음(향상된 select 버젼이라 봄)
+        * colorList 이름값으로 같이 묶음 (많이 쓰지 않음)
+    </p>
+    좋아하는 색상:
+    <input type="text" name="color" list="colorList">
+    <datalist id="colorList">
+        <option value="black">검정색</option>
+        <option value="white">흰색</option>
+        <option value="skyblue">하늘색</option>
+    </datalist>
+
+    <br><br>
+    <input type="submit">
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br>    <br>    <br>
+<br>    <br>    <br>
+<br>    <br>    <br>
+<br>    <br>    <br>    
 </body>
 </html>

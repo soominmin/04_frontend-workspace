@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<head>
+    <title>html종합실습문제2</title>
+</head>
+<body>
+    <fieldset>
+        <legend>납품자 정보</legend>
+        <ol>
+        <table border="0">
+            <tr>
+                <td>
+                <li>
+                    납품자명:
+                </td>
+                <td>
+                    <input type="text" name="name" placeholder="name">
+                </li>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <li>
+                        email: 
+                </td>
+                <td>
+                    <input type="email" name="email" placeholder="answs@naver.com">
+                </li>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <li>
+                        홈페이지:
+                </td>
+                <td>
+                    <input type="url" name="homepage" placeholder="http://">
+                </li>
+                </td>
+            </tr>
+        </table>
+    </ol>
+        </fieldset>
+
+        <fieldset>
+            <legend>납품정보</legend>
+            <ul>
+                <li>
+                    상품명:
+                    <input type="text" name="product">
+                </li>
+                <br>
+                <li>
+                    남품수량:
+                    <input type="number" min="0" max="100" placeholder="최소100">
+                </li>
+                <br>
+                <li>
+                    납품등급:
+                    <input type="range">
+                </li>
+                <br>
+                <li>
+                    기타사항:
+                    <textarea name="text" id="text" cols="30" rows="3"></textarea>
+                </li>
+            </ul>
+        </fieldset>
+        <br><br>
+        <input type="submit" value="send message">
+
+    
+</body>
+</html>
