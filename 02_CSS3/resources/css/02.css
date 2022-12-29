@@ -1,0 +1,104 @@
+/* css영역(스타일 정보를 바로 기입):
+    스타일 태그로 감싸져 있다고 생각하면 됨! */
+h2 {color: red;}
+
+/* 1. 속성선택자----------------------------------- */
+
+/* div 요소들 중 name 속성값이 name1 "일치"하는 요소 (div1)*/
+div[name=name1]{
+    background-color: orangered;
+}
+/* div 요소들 중 name 속성값이 name1 "포함" 되었는 요소 (div1,3) 
+    (키워드 선택 X) (단어구분을 공백 으로서의 구분)*/
+div[name~=name1]{
+    background-color: yellow;
+}
+/* div 요소들 중 class 속성값이 class로 "시작" 되는 요소 (div4) 
+    (키워드 선택 X, 단어구분을 - 로 구분)  */
+div[class|=class]{
+    background-color: cyan;
+}
+/* div 요소들 중 name 속성값이 na로 "시작" 되는 요소(div1,2,3,4)*/
+div[name^=na]{
+    background-color: blue;
+}
+/* div 요소들 중 class 속성값이 ss로 "끝" 나는 요소(div1,2,3) */
+div[class$=ss]{
+    color: green;
+}
+/* div 요소들 중 class 속성값에 i가 "포함"되어 있는 요소(div 1,2,3,4) */
+div[class*=i]{
+    background-color: yellow;
+    color: magenta;
+}
+
+
+/* 응용: class 속성값이 div-class인 요소들 중에서 name 속성값에
+    name3이 포함되어있는 요소
+    => bgc: pink */
+.div-class[name~=name3]{
+    background-color: pink;
+}
+
+/* 2. 자손선택자와 후손선택자------------------------------- */
+/* a > b: a요소의 자손들 중에서 b 요소만을 선택 */
+/* #test1>*{background-color: pink;} */
+
+/* 아이디가 test1인 요소의 자손들 중 h4 요소만 선택 */
+#test1>h4 {background-color: orangered;}
+
+/* 아이디가 test1의 요소의 자손들 중 li요소 선택 */
+/* #test1>li{background-color: darkcyan;}     (X) */
+#test1>ul>li{background-color: darkcyan;}
+
+/* 후손선택자---------- */
+/* a b: a요소의 후손(모든 하위요소)들 중에서 b 요소만 선택 */
+#test1 li{color: orange;}
+
+/* 3. 동위 선택자------------------------------------------ */
+/* a요소 '바로!!!!!!!' 뒤에 있는 b 요소 "하나만"을 선택 */
+#test2+div{background-color: yellow;}
+
+/* 제대로 선택x, 바로 뒤에 있는 요소 x */
+#test2+ul{background-color: blueviolet;}
+
+/* a 요소 뒤에 "모든" b 요소 다 선택 
+#test2~div{background-color: green;}*/
+#test2~ul{background-color: deeppink;}
+
+
+
+/* 4. 반응선택자 ------------------------------------------- */
+.area {
+    background-color: yellowgreen;
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+}
+
+#active-test:active{
+    background-color: yellow;
+    color: red;
+}
+
+#hover-test:hover {
+    background-color: maroon;
+    color: white;
+}
+
+/* 5. 상태선택자 ------------------------------------- */
+input[type=checkbox]:checked{
+    width: 20px;
+    height: 20px;
+}
+
+input[type=checkbox]:checked+label{
+    font-size: 20px;
+}
+
+/* focus */
+input[name^=user]:focus {background-color: pink;}
+
+/*  enabled,disenabled*/
+button:enabled{background-color: violet;}
+button:disabled{background-color: pink;}
