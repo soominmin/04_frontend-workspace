@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>웹 문서 구조</title>
+
+    <style>
+        div {box-sizing: border-box; border: 1px solid red;}
+
+        /* 전체감싸는 div (젤 큰거 먼저)*/
+        .wrap {
+            width: 1000px;
+            height: 800px;
+            margin: auto;   /*정가운데 배치*/
+        }
+
+        /* 공통적인 속성 가로가 같음*/
+        /* 자손만을 선택해서 바꿔야함 (후손은 건들면 x) */
+        .wrap>div { width: 100%; }
+
+        #header, #footer { height: 20%;}
+
+        #content { height: 60%;}
+
+        /* 공통적인 속성 */
+        /* 후손들 선택해서 바꾸기 */
+        #content>div {
+            height: 100%;
+            float: left;
+        }
+
+        #content_1 { width: 20%;}
+
+        #content_2 { width: 80%; }
+
+
+
+    </style>
+
+</head>
+<body>
+    <div class="wrap">
+        <div id="header"></div>
+        <div id="content">
+            <div id="content_1"></div>
+            <div id="content_2"></div>
+        </div>
+        <div id="footer"></div>
+    </div>
+
+
+
+</body>
+</html>
