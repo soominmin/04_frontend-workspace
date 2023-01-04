@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>화면구조실습_v2</title>
+
+    <style>
+    div , form , input{box-sizing: border-box; border: 1px solid green;}
+    .wrap {width: 1000px; height: 800px; margin: auto;}
+
+    .header {height: 15%;}
+    .navigator {height: 5%;}
+    .content {height: 60%;}
+    .footer {height: 20%;}
+
+    .header>div , .content>div{
+        height: 100%;
+        float: left;
+    }
+
+    #hd_1 {width: 20%;}
+    #hd_2 {width: 60%;}
+    #hd_3 {width: 20%;}
+
+    #con_1 {width: 75%;}
+    #con_2 {width: 25%;}
+
+    .con_1>div , .con_2>div {
+        width: 100%;
+        float: left;
+    }
+
+    #c1 {height: 35%;}
+    #c2 {height: 10%;}
+    #c3 {height: 55%;}
+
+    #c4 {height: 35%;}
+    #c5 {height: 65%;}
+
+    /* -------------------------------------------     로고 위치조정 */
+    #hd_1 {
+        padding-top: 3%;
+        padding-left: 5%;
+    }
+    
+    /* -------------------------------------------     검색창 만들기 */
+    #hd_2{position: relative;} 
+
+    #search_form {
+        width: 70%;
+        height: 30%;
+        margin: auto;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+
+    #search_form>div{ height: 100%; float: left;}
+    #search_text{ width: 80%; }
+    #search_btn{ width: 20%; }
+
+    #search_form input{width: 100%; height: 100%;}
+    
+    #search_btn {
+        box-sizing: border-box;
+        width: 60px;
+        height: 20px;
+        padding-left: 20px;
+    }
+
+    /* -------------------------------------------     메뉴바 만들기 */
+
+
+    /* -------------------------------------------     로그인 만들기 */
+    /* -------------------------------------------     공지사항 만들기 */
+    /* -------------------------------------------     footer 만들기 */
+    /* -------------------------------------------     영역별 박스 만들기 */
+
+
+    
+    
+
+
+
+    </style>
+
+</head>
+<body>
+    
+    <div class="wrap">
+        <div class="header">
+            <div id="hd_1">
+                <img src="image/logo.PNG">
+            </div>
+            <div id="hd_2"> <!-- 검색창 -->
+                <form action="" id="search_form">
+
+                    <div id="search_text">
+                        <input type="text" name="keyword">
+                    </div>
+        
+                    <div id="search_btn">
+                        <!-- <input type="submit" name="" value=""> -->
+                        <input type="image" src="image/search.png">
+                    </div>
+                </form>
+            </div>
+            <div id="hd_3"></div>
+        </div>
+        <div class="navigator"></div>
+        <div class="content">
+            <div id="con_1">
+                <div id="c1">
+                    <img src="image/banner.PNG" width="743px" height="164px">
+                </div>
+                <div id="c2"></div>
+                <div id="c3">
+                    <img src="image/car.PNG"  width="743px" height="259px">
+                </div>
+            </div>
+            <div id="con_2">
+                <div id="c4"></div>
+                <div id="c5">
+                    <img src="image/shopping.PNG" width="245px" height="306px">
+                </div>
+            </div>
+        </div>
+        <div class="footer"></div>
+    </div>
+</body>
+</html>
