@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>세부 로그인 폼 만들기-content_3</title>
+
+    <style>
+        div ,form {box-sizing: border-box; border: 1px solid red;}
+        #content_3 {width: 300px; height: 600px;}
+        /*이 스타일은 안 가져감 적당히 맞춰놓기*/
+
+        /* 2 */
+        #login_form {width: 100%; height: 30%;}
+        #login_form>* { width: 100%; }
+        #login_form_input { height: 80%;}
+        #login_form_etc { 
+            height: 20%;
+            text-align: center;
+            /* 로그인폼 etc 내에서 가운데 정렬해야 함_1-1 */
+        }
+
+        /* 3 */
+        #login_form_input>div { height: 100%; float: left; }
+        #login_input_id_pwd{ width: 65%; }
+        #login_input_btn{ width: 35%; }
+
+        /* 회원가입,id/pwd 찾기 링크 영역 스타일 */
+        #login_form_etc > a {
+            text-decoration: none;
+            color: black;
+            font-size: 12px;
+            margin: 10px;
+            /* text-align: center; 텍스트 요소내에서 가운데 정렬 _1*/
+            vertical-align: middle;
+        }
+
+        #login_input_id_pwd > input {width: 100%; height: 50%; box-sizing: border-box;}
+
+        #login_input_btn>input {width: 100%; height: 100%;}
+
+
+
+    </style>
+</head>
+<body>
+    <div id="content_3">
+
+        <!-- 1. 로그인폼 전체를 감싸는 div -->
+        <div id="login_form">
+
+            <!-- 2-1. 입력받아 요청 할 수 있는 form -->
+            <form action="" id="login_form_input">
+                <!-- 3-1. id/pwd 텍스트 상자가 들어갈 div -->
+                <div id="login_input_id_pwd">
+                    <input type="text" name="userId" placeholder="아이디를 입력해주세요" required>
+                    <input type="password" name="userPwd" placeholder="비밀번호를 입력해주세요" required>
+                    <!-- 만들었으면, 크기지정하러 go -->
+
+                </div>
+
+                <!-- 3-2. 로그인 버튼이 들어간 div -->
+                <div id="login_input_btn">
+                    <input type="submit" value="login">
+                    <!-- 만들었으면, 크기지정하러 go -->
+                </div>
+            </form>
+
+            <!-- 2-2. 회원가입, id/pwd 찾기 링크 영역 -->
+            <div id="login_form_etc">
+                <a href="#">회원가입</a>
+                <a href="#">ID/PWD 찾기</a>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
