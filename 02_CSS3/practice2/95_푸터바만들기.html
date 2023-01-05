@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>푸터바 만들기</title>
+    
+    <style>
+        div {box-sizing: border-box; border: 1px solid green;}
+        #footer {width: 996px; height: 157px;}
+
+        #footer>div { width: 100%; }
+        #footer1 { height: 20%; }
+        #footer2 { height: 80%; }
+
+        #footer2>p {
+            width: 100%;
+            border: 1px solid blue;
+            box-sizing: border-box;
+            margin: 0;
+            font-size: 12px;
+            color: rgb(114, 114, 114);
+        }
+
+        #p1 {height: 80%; padding: 5px 15px;}
+        #p2 {height: 20%; text-align: center;}
+
+        #footer1 a{
+            text-decoration: none;
+            color: rgb(114, 114, 114);
+            font-weight: 800;
+            margin: 13px;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+    <div class="footer">
+        <div id="footer1">
+            <a href="#">이용약관</a>    |
+            <a href="#">개인정보취급방침</a>    |
+            <a href="#">인재채용</a>    |
+            <a href="#">고객센터</a>    
+        </div>
+        <div id="footer2">
+            <p id="p1"> 
+            강남지원 1관: 서울특별시 강남구 테헤란로14길 6 남도빌딩 2F,3F,4F,5F,6F <br>
+            강남지원 2관: 서울특별시 강남구 테헤란로10길 9 그랑프리빌딩 4F,5F,7F <br>
+            강남지원 3관: 서울특별시 강남구 테헤란로 130 호산빌딩 5F,6F
+            </p>
+            <P id="p2">
+            Copyright ⓒ 1998-2020 KH Information Education Institute All Right Reserved
+            </P>
+        </div>
+    </div>
+</body>
+</html>
