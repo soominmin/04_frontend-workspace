@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>practice1</title>
+    
+
+</head>
+
+<body>
+    <h1>행 열 각각 입력받아 테이블 만들기</h1>
+    <!-- 힌트: 반복문은 자바랑 같습니다. 다만! 변수만 var 데이터형 이라는걸 기억해주세요 -->
+    <button onclick="createTable();">테이블 생성</button>
+    <!-- 스타일 힌트: td height = '50px' width='30px' -->
+
+    <div id="table_div"></div>
+
+    <script>
+        function createTable() {
+            var row = prompt("몇 행을 추가하시겠습니까?");
+            var col = prompt("몇 열을 추가하시겠습니까?");
+
+            console.log(row);
+            console.log(col);
+
+            var a = "<table border='1'>"; //초기화 null해도 됨
+                console.log(a)
+            for(var i=0; i<row ; i++){
+                a += "<tr>"                //누적해야함
+                    for (var j=0; j<col; j++) {
+                        a += "<td height = '50px' width='30px'></td>";   //누적해야함
+                    }
+                    a += "</tr>"
+            }
+            a += "</table>";
+
+            console.log("최종적 a : " +  a);
+
+            var divEl = document.getElementById("table_div");
+            divEl.innerHTML = a;
+        }
+
+
+
+    </script>
+
+
+    <h1>행 열을 각각 입력받아서 새 화면에서 출력하기</h1>
+    <!-- 힌트: document.write()를 이용하여 표를 출력하면 됩니다. -->
+    <button onclick="createTable_new();">테이블 새화면 생성</button>
+    <!-- 힌트: 5행 3열일 경우 -->
+
+
+    <script>
+        function createTable_new() {
+            var row = prompt("몇 행을 추가하시겠습니까?");
+            var col = prompt("몇 열을 추가하시겠습니까?");
+
+            var count = 1;
+
+            var a = "<table border='1'>"; //초기화 null해도 됨
+                console.log(a)
+            for(var i=0; i<row ; i++){
+                a += "<tr>"                //누적해야함
+                    for (var j=0; j<col; j++) {
+                        a += "<td height = '50px' width='30px'>" + count + "</td>";   //누적해야함
+                        count++
+                    }
+                    a += "</tr>"
+            }
+            a += "</table>";
+
+            document.write(a);
+        }
+    </script>
+
+
+
+
+
+
+</body>
+</html>

@@ -15,8 +15,12 @@
     </style>
 </head>
 <body>
-    <h1>자바스크립트에서의 데이터 입력과 출력</h1>
 
+
+
+
+
+    <h1>자바스크립트에서의 데이터 입력과 출력</h1>
     <!-- 
         * window :자바스크립트 내장 객체로 브라우저 창이 열릴때마다
                   하나씩 만들어지는 객체
@@ -34,6 +38,13 @@
         3) doucment.write("화면상에 출력할 문구");   <!--!!!!!-->
         4) 선택한 요소.innerHTML | innerText = "요소에 출력할 문구"
      </p>
+
+
+
+
+
+
+
 
      <h3>3) doucment.write("화면상 출력할 문구")</h3>
      <button onclick="doucmentWrite();">화면에 출력</button>
@@ -57,6 +68,10 @@
 
 
    
+
+
+
+
     <h3> 4) 선택한 요소.innerHTML | innerText = "요소에 출력할 문구"</h3>
     <div class="area" id="area1">
         자바 스크립트에서 어떤 요소(element)안의 값(content)을 가지고 온다거나 <br>
@@ -93,17 +108,27 @@
         }
 
     </script>
-
     <hr>
 
-    <h2>2. 데이터를 입력 받는 구문 (변수에 기록 가능)</h2>
 
+
+
+
+    <h2>2. 데이터를 입력 받는 구문 (변수에 기록 가능)</h2>
     <p>
         1) 변수 = [ window.]confirm("질문내용"); <br>
         2) 변수 = [ window.]prompt("질문내용"); <br>
         3) 변수 = 선택한요소.속성(id, className, innerHTML, innerText, ..) <br>
         4) 변수 = 선택한 input 요소.value
     </p>
+
+
+
+
+
+
+
+
 
     <h3>1) [ window.]confirm("질문내용");</h3>
     <p>
@@ -112,21 +137,151 @@
     </p>
 
     <button onclick="testConfirm();">클릭</button>
+    <div id="area2"></div>
 
     <script>
         function testConfirm() {
             var result = confirm("졸리면 확인, 아니면 취소를 누르세요");
             // 명확하게 확인과 취소버튼이 생김
             // console.log(result);  확인==true, 취소==false
-        
+
+            var divEl = document.getElementById("area2");
+            // 호버해보면,Document.getElementById(elementId: string):
+
+
+            
             if(result) {
-                console.log("정신들차리세요");
+                // console.log("정신들차리세요");
+                divEl.innerHTML = "<h3>정신들 차리세용</h3>";
             } else {
-                console.log("굳~");
+                // console.log("굳~");
+                divEl.innerHTML = "<h3>굳굳~</h3>";
             }
         }
     </script>
+    <br>
 
+
+
+
+
+
+
+    <h3>[ window.]prompt("질문내용");</h3>
+    <p>
+        prompt 호출시 "질문내용"과 입력 할 수 있는 "텍스트 상자"와 
+        "확인/취소" 버튼이 보여지는 알람창 발생 <br>
+        확인 버튼 클릭시 텍스트 상자에
+        입력되어있는 값이 문자열로 반환 (아무리 숫자로 써있어도 문자열),
+        취소버튼 클릭시 null 반환 (글자입력했어도 취소누르면 무조건 null).
+    </p>
+
+    <!-- onclick > script > function-->
+    <button onclick="testPrompt1();">클릭</button>
+    <div id="area3"></div>
+
+    <script>
+        function testPrompt1() {
+            var name = prompt("당신의 이름은 무엇입니까?");
+            var age = prompt("당신의 나이는 몇살입니까?");
+
+            // console.log(name);
+            // console.log(age);
+            // console.log(7);  //콘솔에 숫자가 입력되면, 파란색으로 보임
+
+
+            var divEl = document.getElementById("area3");
+            // function이 다르니까 변수명 같아도 됨
+            divEl.innerHTML = "<b>앗, 당신이 바로 " + age  + " 살" + name + " 님이군요..반가워영</b>";
+            // innerHTNL이면 div> 여기!!! 쓰여짐</div
+        }
+    </script>
+
+    <br>
+    <button onclick="testPrompt2();">숫자입력</button>
+    <ul id="area4"></ul>  <!-- == 여기에다가 입력됨 이자체가 가져와짐-->
+
+
+    <script>
+        function testPrompt2() {
+            // num 개수만큼 반복문 돌려서 li만들어줄거임
+
+            /*
+            자바에서는 
+            for(int i=1, i<=num, i++){
+                //numm 횟수만큼 반복됨
+            }
+            */
+
+            var num = prompt("숫자만을 입력하세요");
+
+            var str = "";
+            for(var i=1; i<=num; i++){
+                str += "<li>목록" + i + "</li>";
+                // += 누적합 기입을 해야함
+            }
+
+
+            // console.log(str); 확인했음
+
+
+            /*
+            == 두 줄로 쓰는것도 가능하다
+            var ulEl(태그전체가 담겨잇음) = document(==문서임).getElementById("area4")(==아이디로 식별해서 얻어옴);
+            ulEl.innerHTML = str; (ulel에 가져온 태그를 작성한다)
+            */
+            // 위의 두줄을 다음과 같이 한줄로 줄이기 가능
+            document.getElementById("area4").innerHTML = str;
+
+
+
+
+            /*
+            alert 함수는 메시지 창을 띄워주는 함수이다.
+            prompt() 는 사용자에게 어떠한 값을 입력받을 때 사용하는 함수
+            */
+        }
+    </script>
+
+    <br>
+
+
+
+
+
+
+
+    <h3>4) 선택한 input요소.value</h3>
+    아이디 : <input type="text" id="userId"> <br>
+    비밀번호: <input type="password" id="userPwd"> <br>
+
+    <button onclick="testInput();">클릭</button>
+
+    <input type="text" id="area5">
+
+    <script>
+        function testInput() {
+            var input1 = document.getElementById("userId");
+            var input2 = document.getElementById("userPwd");
+
+            console.dir(input1);   // 디렉토리 구조를 볼수 있는 dir
+
+            // console.log(input1.value);
+            // console.log(input2.value)
+
+            var id = input1.value;
+            var pwd = input2.value;
+
+            document.getElementById("area5").value = id + "," +pwd;
+            // innerHTMl 하겟다? ==>  .innerHTML = id +","+pwd;  "안됨"
+            // input1.value 박스에 값 ==> .value "잘 됨"
+
+
+            // 클릭버튼을 누르면 각각의 인풋창이 초기화됐으면 좋겠다.
+            input1.value="";
+            input2.value="";
+        }
+    </script>
 
     <br><br><br><br><br><br><br><br>
     <br><br><br><br><br><br><br><br>

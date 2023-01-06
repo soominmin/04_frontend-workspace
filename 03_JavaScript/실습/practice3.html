@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>practice3</title>
+
+    <style>
+        div {
+            border: 1px solid black;
+            background-color: rgb(240, 224, 188);
+            width: 200px;
+            height: 100px;
+        }
+    </style>
+
+    
+</head>
+<body>
+    <h1>HTML 태그에 접근 테스트</h1>
+    <P>
+    단, 구매자는 태그 이름으로 접근, 상품명은 아이디로 접근, 구매가격은 name값으로 접근할 것
+    </P>
+
+    구매자: <br>
+    <input type="text" id="userName" placeholder="구매자의 이름 입력"> <br>
+    상품명: <br>
+    <input type="text" id="product" placeholder="구매할 상품명 입력"> <br>
+    가격: <br>
+    <input type="text" name="price" id="price" placeholder="구매 가격 입력"> <br> <br>
+
+    <button onclick="accessClick();">입력값 출력하기</button>  <br><br>
+
+    <div id="box"></div> <!--여기-->
+
+    <script>
+
+        function accessClick() {
+            var input1 = document.getElementsByTagName("input");
+            var input2 = document.getElementById("product");
+            var input3 = document.getElementsByName("price");
+            var input4 = document.getElementById("box");
+
+            var name = input1[0].value;
+            var product = input2.value;
+            var price = input3[0].value;
+
+            input4.innerHTML =
+            "구입자: " + name
+            + "<br>구입상품: " + product
+            + "<br>구매가격: " + price + "원";
+
+
+        }
+    </script>
+</body>
+</html>
