@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>자바스크립트에서의 데이터 입력과 출력</h1>
+    <!-- window 자바스크립트 내장객체로 브라우저 창일 
+        열릴때마다 하나씩 만들어지는 객체
+        브라우저 창 안에 존재하는 모든 요소들의
+         최상위 객체 
+        document 웹 문서마다 하나씩 만들어진
+         객체 html 문서에 대한 정보들을 가지고 잇음-->
+
+<h2>1. 데이터를 출력하는 구문</h2>
+<p>
+    1) [window.] alert("알람창에 출력 할 문구");
+    2) [] colsole.log("콘솔창에 출력 할 문구");
+    3) document.write("화면상에 출력할 문구")
+    4) 선택한 요소.innerHTML|innerText="요소에 출력할 문구"
+</p>
+
+
+<h3>3) document.write("화면상 출력할 문구")</h3>
+<button onclick="documentWrite();">화면 출력</button>
+
+<script>
+    function documentWrite() {
+        var a = "<table border='1'>";
+            a += "<tr>";
+            a += "<td>1</td>";
+            a += "<td>2</td>";
+            a += "</tr>";
+            a += "</table>";
+
+            document.write(a);
+    }
+</script>
+
+
+
+
+
+<h3>4) 선택한 요소.innerHTML | innerText = "요소에 출력할 문규"</h3>
+<div class="are" id="area1">
+    자바 스크립트에서 어떤 요소안의 값을 가지고 온다거나 변경하고자 할 때,
+    innerHTML, innerText 라는 속성에 접근
+</div>
+
+<button onclick="tagvalue();">확인</button>
+
+<script>
+    function tagValue() {
+        var divEl = document.getElementById("area1");
+
+        window.log(divEl);
+        console.dir(divEl);
+
+        console.log(divEl.id);
+        console.log(divEl.className);
+
+        console.log(divEl.innerHTML);
+        console.log(divEl.innerText);
+
+        divEl.innerText = "<b>innerText 로 속성값 변경함</b>";
+        divEl.style.color="red";  
+    }
+</script>
+
+
+<h2>데이터를 입력받는 구문(변수에 기록가능)</h2>
+<p>
+    1) 변수 = confirm("질문내용");
+    2) 변수 = prompt("질문내용");
+    3) 변수 = 선택한요소,속성(id,className,innerHTML,innerText)
+    4) 변수 = 선택한 input요소.value
+</p>
+
+
+
+
+
+<h3>confirm("질문내용");</h3>
+<p>
+    confirm 호출시 질문내용과 확인 취소 버튼이 존재하는 알람창 발생
+    확인 버튼 클릭시 참, 취소버튼 클릭스 거직을 반환
+</p>
+
+<button onclick="testconfirm();">클릭</button>
+<div id="area2"></div>
+
+<script>
+    function testConfirm() {
+        var result = confirm("졸려 확인, 아님 취소");
+        
+        var divEl = document.getElementById("area2");
+
+        if(result){
+            divEl.innerHTML = "<h2>정신차려</h2>"
+        } else {
+            divEl.innerHTML = "<h2>굳</h2>"
+        }
+    }
+</script>
+
+<h3>prompt("질문내용");</h3>
+
+
+
+</body>
+</html>
