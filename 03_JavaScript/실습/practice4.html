@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+    #content {width: 800px; border: 1px solid red;}
+    #content1 {height: 150px;}
+    </style>
+
+</head>
+
+
+
+<body>
+
+    <h3>기본 문법 문제</h3>
+    <h2>문제1</h2>
+    <fieldset style="width: 780px;">
+        <legend>보기</legend>
+        <input type="text" id="textbox" style="width: 600px;">
+    </fieldset>
+    <br>
+
+    <textarea name="content1" id="content" cols="115" rows="10"></textarea>
+    <br>
+    <button onclick="length();">확인하기</button>
+
+    <script> 
+        function length() {
+        const str1 = document.getElementById("content");
+        const str2 = document.getElementById("textbox").value;
+
+        str1.innerHTML += "보기의 문자열 길이는" + str2.length + " 글자 입니다.";
+        }
+    </script>
+    <hr>
+
+
+
+
+
+
+
+    <h2>문제2</h2>
+    <fieldset style="width: 780px;">
+        <legend>보기</legend>
+        <div id="food">콜라,사이다,햄버거,피자,한약</div>
+    </fieldset>
+    <br>
+
+    <textarea name="content2" id="content" cols="30" rows="10"></textarea>
+    <br>
+
+    <button onclick="split();">확인하기</button>
+
+    <script>
+        function split() { 
+            let fd1 = document.getElementById("food");
+            let result = fd1.split(",");
+
+            for (let i=0; i<result.length; i++) {
+                content.innerHTML += i + "." + 
+            }
+        }
+    </script>
+
+
+
+
+
+    
+
+</body>
+</html>

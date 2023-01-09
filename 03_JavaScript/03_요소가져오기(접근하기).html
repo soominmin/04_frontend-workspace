@@ -17,6 +17,7 @@
 </head>
 <body>
     <h1>HTML 요소에 접근하기(해당 요소객체 가져오기)</h1>
+    <h2 style="color: violet;">핵심 파트니까 잘 외우기</h2>
 
 
     <h3>1) 아이디 이용해서 요소 가져오기</h3>
@@ -152,6 +153,7 @@
 
 
     <h3>4) 클래스를 이용해서 요소 가져오기</h3>
+    <!-- 여러항목들이 같은 클래스를 가질 수 있어서 Elements-->
     <!-- .test+p.test+ul.test>li*2 -->
     <div class="test"></div>
     <p class="test"></p>
@@ -177,7 +179,49 @@
             }
         }
     </script>
+    <hr>
 
+    <h3>5) 내가 원하는 요소 자유자재로 가져오기 (선택자를 활용)</h3>
+
+    <div id="test1">테스트 입니다</div>
+    <div class="test">
+        <h2>안녕</h2>
+        <h2>잘가</h2>
+    </div>
+    <span>ㅋㅋㅋㅋ</span>
+    <h2>빠이</h2>
+
+    <br>
+    <button onclick="accessSelector();">클릭</button>
+
+    <script>
+        function accessSelector() {
+            // 선택자를 이용해서 요소를 가져오고자 할 때
+
+            // [표현법1] document.querySelector("선택자");
+            // ==>1: 선택된 요소객체 하나만 반환
+
+            // [표현법2] document.querySelectorAll("선택자");
+            // ==>2: 선택된 요소객체들을 배열에 담아서 반환
+
+            var divEl = document.querySelector("#test1");   
+            // div 요소 객체 담김
+            var h2El = document.querySelectorAll(".test>h2");  
+            //[h2요소객체, h2요소객체 ...] 배열에 담김
+            var spanEl = document.querySelector(".test+span");
+            // 클래스가 test인 형제인 span (span 요소객체 담김)
+
+            console.log(divEl.innerHTML);
+            // 테스트 입니다
+
+            for(var i=0; i<h2El.length; i++){
+                console.log(h2El[i].innerHTML);}
+            // 안녕, 잘가
+
+            console.log(spanEl.innerHTML);
+            // ㅋㅋㅋ
+        }
+    </script>
 
 
 
