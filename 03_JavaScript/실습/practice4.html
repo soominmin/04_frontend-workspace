@@ -52,7 +52,7 @@
 
     <fieldset style="width: 780px;">
         <legend>보기</legend>
-        <p id="food">콜라,사이다,햄버거,피자,한약</p>
+        <div id="food">콜라,사이다,햄버거,피자,한약</div>
     </fieldset>
     <br>
 
@@ -61,12 +61,15 @@
 
     <script>
         function split() { 
-            let str = document.getElementById("food");
-            let result = str.split(",");
+            const area = document.getElementById("area2");
+            const str1 = document.getElementById("food").innerHTML;
+            const str2 = str1.split(",");
+ 
+            console.log(str2);
 
 
-            for (let i=0; i < result.length; i++) {
-                area2.innerHTML += i + "." + result[i] + "<br>";
+            for (var i=0; i < str2.length; i++) {
+                area.innerHTML += (i+1) + "." + str2[i] + "<br>";
             }
         }
     </script>
