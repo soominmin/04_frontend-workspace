@@ -22,37 +22,39 @@
         <label id="la4">고양이,강아지</label> <br>
     </fieldset>
 
-    <input type="text" id="text" placeholder="찾을 문자열을 입력하세요">
-    <button onclick="test1();">전송 및 처리</button>
+    <input type="text" id="findInput" placeholder="찾을 문자열을 입력하세요"> <br>
+    <button onclick="test();">전송 및 처리</button>
 
     <script>
-        function test1() {
-            const fruit = document.getElementById("la1").outerText;
-            const food = document.getElementById("la2").outerText;
-            const drink = document.getElementById("la3").outerText;
-            const pet = document.getElementById("la4").outerText;
-
-            let fts = fruit.split(",");
-            let fds = food.split(",");
-            let dks = drink.split(",");
-            let pts = pet.split(",");
-
-            // input.value 값 가지고 있는 중
-            const alert = document.getElementById("text").value;
-            // 전체 값 가지고 있는 배열
-            const area1 = fts.concat(fds,dks,pts);
-            // 인덱스값 뽑아내는 중
-            const index = area1.indexOf(alert);
-
-            
-            if(index == -1) {
-                window.innerHTML += alert(alert +"은(는) 존재하지 않습니다.")
-            }else {
-                window.innerHTML += alert(alert +"은(는)"+ index +" 번째에 존재합니다.");
+        function test() {
+            let str = ""; // 초기화: 문자자료형을 쓸거다
+            for(let i=1; i<=4; i++){
+                str += document.getElementById("la" + i).innerHTML;
+                // innerHTML 안에있는 문자들가져와라
+                // 당근김밥,햄버거환타,콜라고양이 => for문하나 돌아가면 ,를 찍고싶네
+                str += ",";
+                // 문장 맨끝에도 ,가 있어서 좀 거슬림
             }
-            
-            // console.log(area1);
-            // console.log(index);
+                    // console.log(str); 확인함
+
+            // 배열에 넣기
+            const foods = str.split(",");
+                     // console.log(foods); 확인함
+
+            // 배열 맨뒤에 "" 인식됨, 맨 뒤 요소 삭제
+            foods.pop();
+                    // console.log(foods); 확인함
+
+            // findInput 박스 찾음.value
+            const findInput = document.getElementById("findInput"); //value 속성 가져와야함
+            // index에 findInput의 키값의 숫자를 뱉음(요소있으면 index값 뱉음)
+            let index = foods.indexOf(findInput.value);
+        
+            if(index == -1) {
+                alert("존재하지 않습니다.") // 없다
+            }else {
+                alert(findInput.value +"은(는) 배열 index "+ index +" 번째에 존재합니다.");
+            }
         }
     </script>
     
