@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열실습문제2</title>
+    <style>
+    div {
+        border: 1px solid red;
+        width: 700px;
+        height: 30px;
+    }
+    
+    </style>
+</head>
+<body>
+    <h1>배열 실습 문제2</h1>
+    <p>
+        다음 보기에 있는 문자열을 가지고 정답과 같이 만드세요.(별도의 문자열을 쓰면 안됨) <br>
+        그리고 출력 부분에 출력하도록 하면 됩니다. 정답: "brlove"       
+    </p>
+    <!-- 쿼리셀렉트올 -->
+    <fieldset>
+        <legend>보기</legend>
+        <label id="stringla1">r b</label> <br>
+        <label id="stringla2">e v o l</label> <br>
+    </fieldset>
+    <br>
+    <div id="answer" class="area">이부분에 정답 출력</div> 
+    <br>
+    <button onclick="test();">처리</button>
+
+    <script>
+        function test() {
+            //arr 1번이라는 배열에 넣고, 2번에 넣고 reverse 시켜볼끼?
+            // 그걸 같이 출력을 해볼까?
+            let str = ""; // 초기화
+            str = document.getElementById("stringla1").innerHTML;
+                    // console.log(str); 확인
+            let arr1 = str.split(" "); // 공백으로 나뉘어져 있음
+            // 뒤집기
+            arr1.reverse();
+
+
+            str = document.getElementById("stringla2").innerHTML;
+            let arr2 = str.split(" "); 
+            arr2.reverse();
+
+                    // console.log(arr1);
+                    // console.log(arr2);
+
+            const answer = document.getElementById("answer");
+
+            answer.innerHTML = ""; //초기화
+
+            // arr1+arr2 합치기
+            let finalArr = arr1.concat(arr2); // concat원본 배열에 영향 안줌
+
+            console.log(finalArr);
+
+            for(let i in finalArr){
+                answer.innerHTML += finalArr[i];
+            }
+            
+            // for(let i in arr1){answer.innerHTML += arr1[i]; }   // b r
+            // for(let i in arr2){answer.innerHTML += arr2[i]; } // l o v e 
+            
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습 문제 8</title>
+    <style>
+            div {
+                    border: 1px solid red;
+                    width: 700px;
+                    height: 30px;
+                }
+    </style>
+    
+</head>
+<body>
+    <h1>배열 실습문제 3</h1>
+    <fieldset>
+        <legend>입력</legend>
+        <input type="text" id="input1">
+        <button onclick="test();">입력</button>
+    </fieldset>
+    <br>
+    <div id="answer" class="area">이부분에 정답 출력</div> 
+
+    <script>
+        let arr = [];   // 초기화
+        let input1 = document.getElementById("input1");
+        let answer = document.getElementById("answer");
+
+        function test() {
+            arr.push(input1.value);
+            input1.value = ""; // 초기화
+
+            console.log(arr);
+
+            answer.innerHTML = arr.toString();
+        }
+    </script>
+
+
+</body>
+</html>
