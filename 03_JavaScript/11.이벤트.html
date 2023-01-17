@@ -162,7 +162,7 @@
     <p>
         기본적으로 이벤트를 가지고 있는 요소 <br>
         - a태그: 클릭시 href에 제시되있는 url로 요청하는 기본이벤트 보유
-        - form내의 submit 버튼: 클릭시 사용자가 입력한 값들을 action에
+        - (*)form내의 submit 버튼: 클릭시 사용자가 입력한 값들을 action에
           제시 돼있는 url로 제출하면서 요청하는 기본이벤트 보유
         <br><br>
         태그내에 기본적으로 설정되있는 이벤트가 실행 안되게끔 막고 싶음 <br>
@@ -182,6 +182,57 @@
             return false;
         }
         //  기본 이벤트를 향해서 return false가 안됨 => return 써줘야함.
+    </script>
+    <hr>
+    <br>
+    <!-- 17일 -->
+
+    <!-- get 으로 하면 키,벨류값 넘어가는게 보임, post로하면 안보임 -->
+    <form action="test.do" method="get">
+        아이디 :
+        <input type="text" name="userId" id="userId"> <br>
+        비밀번호 :
+        <input type="password" name="userPwd" id="userPwd"> <br>
+        비밀번호 확인:
+        <input type="password" id="checkPwd"> <br> <br> 
+        <!-- 비밀번호 확인은 맞으면, 굳이 서버에 넘길 필요없음 -->
+        <input type="submit" onclick="return validate();"> <!-- 확인==validate -->
+        <!-- submit은  기본 클릭 이벤트이지만, onclick 걸면 이게 우선-->
+        
+        <!-- 비밀번호와 비밀번호 확인이 동등비교 필요 -->
+        <!-- 기본이벤트 수행하기 전에 비번,비번확인 맞는건지 확인 후 전송 -->
+    </form>
+
+    <script>
+        function validate() {
+            const userPwd = document.getElementById("userPwd").value;
+            const checkPwd = document.getElementById("checkPwd").value;
+            const userId = document.getElementById("userId").value;
+
+            // 아이디에 대한 유효성 검사
+            // 영문자 또는 숫자로만 5글자 이상 12글자 이하가  맞는지
+            // 맞지 않을 경우
+            // 알람창 출력 => 제출 불가하게끔 기본 이벤트 막기
+
+            // 정규표현식
+            const regExp = /^[a-zA-Z0-9]{5,12}$/;
+
+            if(!regExp.test(userId)){
+                // 잘못 썻을때, 알람창 + 드래그(영역)
+                alert("유효한 아이디의 형식이 아닙니다. 다시 입력해주세요.")
+                document.getElementById("userId").select();
+                return false;
+            }
+
+
+
+            // 두 개의 비밀번호가 일치 하지 않을 경우
+            // 알람창 출력 => 제출이 불가하게끔 기본이벤트 막기
+            if(userPwd != checkPwd){
+                alert("비밀번호가 일치 하지 않습니다.");
+                return false;
+            }
+        }
     </script>
 
 
