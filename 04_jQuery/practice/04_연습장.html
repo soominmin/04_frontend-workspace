@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>연습장</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+</head>
+<body>
+    <h3>* 필터 관련 선택자</h3>
+
+    <table border="1">
+        <tr>
+            <th>이름</th>
+            <th>혈액형</th>
+            <th>거주지</th>
+        </tr>
+        <tr>
+            <th>문동은</th>
+            <th>A형</th>
+            <th>서울</th>
+        </tr>
+        <tr>
+            <th>박연진</th>
+            <th>B형</th>
+            <th>경기도</th>
+        </tr>
+        <tr>
+            <th>전재준</th>
+            <th>O형</th>
+            <th>부산</th>
+        </tr>
+        <tr>
+            <th colspan="2">총인원</th>
+            <th>3명</th>
+        </tr>
+    </table>
+
+
+
+    <SCript>
+        $(function() {
+            // 이 요소의 첫번째 first
+            $("tr:first").css("backgroundColor","red").css("color","white");
+            // 이 요소의 마지막번째 last
+            $("tr:last").css({backgroundColor:"red",color:"white"});
+            // 짝수 번째 인덱스(tr보면 0에서 n까지 인덱스에 접근) even
+            $("tr:even").css("backgroundColor","lightgray").css("color","green");
+            // 홀수 번째 인덱스 odd
+            $("tr:odd").css("backgroundColor","yellow").css("color","pink");
+        });
+    </SCript>
+    <hr>
+
+
+
+
+
+
+
+
+
+    <h3>* 필터링과 관련된 메소드</h3>
+    <p>
+        기준이 되는 요소 중에서 특정 요소만을 걸러서 선택해주는 메소드 <br>
+    </p>
+
+    <h4 class="test">test_1</h4>
+    <h4 class="test">test_2</h4>
+    <h4 class="test">test_3</h4>
+    <h4 class="test">test_4</h4>
+    <h4>test_5</h4>
+    <h4 class="test">test_6</h4>
+
+    <script>
+        $(function() {
+            $("h4").first().css("fontSize","20px");
+            $("h4").last().css("fontSize","30px");
+            $("h4").filter(".test").html("ㅋㅋㅋㅋㅋㅋ");
+            $("h4").not(".test").css("color","red");
+            $("h4").eq(2).css("color","green").css("fontSize","60px");
+            // innerHTML => html() => 시각적 요소 까지 바꿔주는 것 
+            // 입력된 문자를 html 형식으로  넣어준다
+
+            // innerText => text() => 글자 그대로 넣어준다
+            // textContent == innerText 
+            // 입력 받은 그대로 넣어준다.
+        });
+    </script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
