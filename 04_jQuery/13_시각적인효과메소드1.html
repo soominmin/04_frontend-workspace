@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+</head>
+<body>
+    <h1>시각적인 효과 (Effect)</h1>
+    <p>페이지 내에 애니메이션 효과를 주기 위해 사용되는 메소드 집합</p>
+
+    <h3>* show()와 hide(), toggle()</h3>
+    <p>선택된 요소가 점점 커지면서 보여지고, 점점 작아지면서 사라지게 하는 메소드</p>
+
+    <button id="hide">숨기기</button>
+    <button id="show">보여주기</button>
+    <button id="toggle">토글</button>
+    <br><br>
+
+    <!-- ../ 경로: 뒤로 가기 -->
+    <!-- <img src="../01_HTML5/resources/image/city1.PNG" alt=""> -->
+    <img id="nk" src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjEyMDRfNTgg%2FMDAxNjcwMDgwMDU2Njg5.ITWZwnPz-Oc1wB-iNIueFmjwh4WBWq5e4Pb35sYH1fAg.vw1fQbInqnbea9mqywYyJ9WYItp4UDTXiZKK1sKiMwcg.JPEG.loveholic_1004%2F20220313_094849.jpg&type=sc960_832">
+    <br>
+
+    <div id="area" style="width: 100px; height: 100px; background-color: red;"></div>
+
+    <script>
+        $(function() {
+            // 사라지기
+            $("#hide").click(function(){
+                // $("#nk").hide();
+                $("#nk").hide(1500);
+                $("#area").hide(1500);
+            });
+
+
+            // 보여주기
+            $("#show").click(function(){
+                // $("#nk").show();
+                $("#nk").show(1500);
+            });
+
+
+
+            // 토글
+            $("#toggle").click(function() {
+                $("#nk").toggle(1500);
+            });
+        })
+    </script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
