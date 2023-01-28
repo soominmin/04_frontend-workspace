@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <style>
+        div {
+            background-color: beige;
+            border: 1px solid lightgray;
+            width: 300px;
+            height: 30px;
+            text-align: center;
+            line-height: 30px;
+            border-radius: 10px;
+            cursor: pointer;    
+            /* 마우스가 호버됫을때 눌러질것같은 느낌 */
+        }
+
+        p {
+            border: 1px solid lightblue;
+            width: 300px;
+            height: 100px;
+            border-radius: 10px;
+            margin-top: 5px;    /* p 는 원래 기본적으로 위 아래 마진 있음*/
+            padding: 10px;
+            box-sizing: border-box;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h3>* slideDown() 과 slideUp()</h3>
+
+    <!-- (div+p)*5 -->
+    <div>Q. 반품 언제 되나요?</div>
+    <p>A. 지금 확인 중 입니다.</p>
+
+    <div>Q. 상품 위치를 알고 싶습니다.</div>
+    <p>A. 배송 조회 해 보세요. 핑프세요?</p>
+
+    <div>Q. 이 사이즈 있나요?</div>
+    <p>A. 네, 있어요 ^-^ 사세요</p>
+
+    <div>Q. 판매자가 연락이 안됩니다.</div>
+    <p>A. 네, 저도 안됩니다 사기당하신듯?</p>
+
+    <div>Q. 연락이 가능한 시간을 알려주세요</div>
+    <p>A. 싫어용</p>
+
+    <script>
+        $(function() {
+            $("div").click(function() {
+                // $(this): 클릭이벤트가 발생한 div 요소
+                // 우리는 그 요소의 뒤의 요소를 선택해야함 (== p)
+                // div 랑 형제인 p (== 같은 레벨)
+
+                // $(this).next(): 클릭이벤트가 발생한 div 뒤에 있는 p
+                // 보여지는 상태면 사라지게, 안보이면 나타나게
+
+                const $p = $(this).next(); /* 관례 jQuery 요소를 나타내는 $를 붙여줌*/
+                
+                if($p.css("display") == "none"){
+                    // 안 보이는 상태 display=none
+
+
+                    // ** 하나라도 열면, 기존꺼는 닫히면서 지금꺼만 열리기
+                    // 지금꺼 열린건 ok, 기존꺼 닫히는 기능 구현하기
+                    // == 형제인 p를 전부 다 닫아야함, 순서 중요
+                    $(this).siblings("p").slideUp();
+
+
+                    //  => 보여지게끔 방법1
+                    // $p.css("display","block");
+
+                    //  => 보여지게끔 방법2
+                    $p.slideDown();
+
+
+
+
+
+                } else {
+                    // 보이는 상태
+
+                    // => 안보여지게끔
+                    $p.slideUp();
+
+
+                }
+            })
+        })
+    </script>
+
+
+
+
+
+</body>
+</html>
