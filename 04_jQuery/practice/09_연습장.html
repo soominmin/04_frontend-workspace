@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+    <style>
+        .added{color: palegreen;}
+
+        .item{
+            background-color: yellowgreen;
+            width: 100px;
+            height: 100px;
+            text-align: center;
+            line-height: 100px; 
+            /* line-height를 높이(height)랑 똑같이 하면 정 가운데 배치 */
+            margin: 5px;
+        }
+
+
+        .item span{
+            font-size: 25px;
+            color: white;
+            font-weight: bolder;
+        }
+
+        .purple {
+            background-color: purple;
+        }
+    </style>
+</head>
+<body>
+    <h3>* 요소 객체 제거 및 잘라내기 메소드</h3>
+
+    <p>
+        $("선택자").empty(): 그 요소의 하위 요소를 삭제하는 것(상위 요소 선택)
+        변수 = $("선택자").remove|detach(): 선택 된 요소 제거 한 후 해당 제거된 요소 반환
+        > remove(): 이벤트 안가져옴
+        > detach(): 이벤트 가져옴
+    </p>
+
+    <div id="remove-test">
+        <div id="item2" class="item">
+            <span>바이</span>
+        </div>
+    </div>
+
+
+
+    <button id="empty">제거</button>
+    <button id="remove">잘라내기1</button>
+    <button id="detach">잘라내기2</button>
+
+    <!-- 잘라내서 붙일곳 -->
+    <div id="remove-result"></div>
+
+
+
+    <script>
+        $(function() {
+            $("#empty").click(function() {
+                $("#remove-test").empty(); 
+            });
+
+
+
+            $("#remove").click(function() {
+                const el = $("#item2").remove();
+                $("#remove-result").append(el);
+                // append: 새로 추가된 요소가 뒤에 붙음
+            });
+
+
+            $("#detach").click(function() {
+                const el = $("#item2").detach();
+                $("#remove-result").append(el);
+            });
+        });
+    </script>
+</body>
+</html>
