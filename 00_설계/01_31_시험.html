@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8차시험</title>
+</head>
+<body>
+    <p>
+        [요구사항] <br>
+        1. 제시된 화면과 같은 화면을 만드시오 <br>
+
+        2. 아이디 입력 후 중복확인 버튼을 클릭했을때, <br>
+        2-1) 첫글자는 영어 소문자로 시작하고 숫자 !@# 로만 이루어진
+        6`12 글자 사이 문자열인지 검사 <br>
+        2-2) 형식이 일치 하지 않을 경우 아이디 입력창 배경색 빨간색 변경 <br>
+        2-3) 형식이 일치할 경우 아이디 입력창 배경색 초록색 변경 <br>
+
+        3. 회원가입 버튼 클릭시 지역이 선택되지 않은 경우 경고창(=대화상자)
+            "지역을 선택해주세요" 출력 후 회원가입 진행 되지 않게 <br>
+        4. 초기화 버튼 클릭시 입력했던 내용 전부 초기화 <br>
+
+    </p>
+    <fieldset>
+
+        <form action="insert.me" method="get">
+            <legend>회원 가입 양식</legend>
+            <table border="0">
+                <tr>
+                    <td>아이디</td>
+                    <td><input type="text" id="userId" ></td>
+                    <td><button onclick="return checked();">중복확인</button></td>
+                </tr>
+                <tr>
+                    <td>비밀번호</td>
+                    <td><input type="password" id="userPwd1"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>비밀번호 확인</td>
+                    <td><input type="password" id="userPwd2"></td> 
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>지역</td>
+                    <td>
+                        서울 <input type="radio" id="seoul" name="area" value="seoul">
+                        부산 <input type="radio" id="busan" name="area" value="busan">
+                        대구 <input type="radio" id="daegu" name="area" value="daegu">
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align: right;">
+                        <input type="reset">
+                        <button onclick="return validate();">회원가입</button>
+                    </td>
+                    <td></td>
+                </tr>
+            </table>    
+        </form>
+    </fieldset>
+
+
+
+
+    
+    <script>
+        function checked() {
+            // input 요소 가져오기
+            const idInput = document.getElementById("userId");
+
+            // 1) 아이디 검사
+            // 첫글자는 영어 소문자로 시작하고 숫자 !@# 로만 이루어진 6~12 글자 사이 문자열인지 검사
+            let regExp = /^[a-z]{1}[a-z\d!@#]{5,11}$/i;
+
+            if(!regExp.test(idInput.value)){
+                // idInput.css("backgroundColor","red");
+                idInput.style.backgroundColor= "red";
+                return false;
+            }else{
+                // idInput.css("backgroundColor","green");
+                idInput.style.backgroundColor= "green";
+                return false;
+             }
+        }
+
+
+        
+
+
+        function validate() {
+            // 2) 지역 버튼 클릭 안되면, alert 출력하기 ("지역을 선택해주세요");
+            let seoul = document.getElementById("seoul").checked
+            let busan = document.getElementById("busan").checked
+            let daegu = document.getElementById("daegu").checked
+
+            if(!seoul && !busan && !daegu){
+                alert("지역을 선택해주세요");
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>
