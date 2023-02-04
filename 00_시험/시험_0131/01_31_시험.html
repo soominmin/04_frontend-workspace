@@ -73,7 +73,7 @@
 
             // 1) 아이디 검사
             // 첫글자는 영어 소문자로 시작하고 숫자 !@# 로만 이루어진 6~12 글자 사이 문자열인지 검사
-            let regExp = /^[a-z]{1}[a-z\d!@#]{5,11}$/i;
+            let regExp = /^[a-z]{1}[a-zA-Z\d!@#]{5,11}$/;
 
             if(!regExp.test(idInput.value)){
                 // idInput.css("backgroundColor","red");
